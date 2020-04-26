@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Used-Car Trading System - Login</title>
+
+    <link rel="stylesheet" href="assets/webStyles.css">
+    <script src="assets/js/JS_loginPage.js"></script>
+    <script src="assets/js/JS_top.js"></script>
+</head>
+    
+<body>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <!-- Navbar -->
+    <nav class="navBG">
+        <div class="logoPic"></div>
+        <div id="nav-picRight">
+            <div class="pageTitle">Used Car Trading System</div>
+            <div style="margin-top: 10px;">
+                <a href="index.html" class="menuItems topMenu" style="margin-left:120px;">Home</a>
+                <span class="menuItems colorLightGray">|</span>
+
+                <a href="GetRecommendations.html" class="menuItems topMenu">Get Recommendations</a>
+                <span class="menuItems colorLightGray">|</span>
+
+                <a href="#" class="menuItems uploadCar" onclick="checkEnterUploadPage()">Upload Used Car</a>
+            </div>
+            <a href='login.html' class="loginBtt" id="loginBtt" onclick="logOut()"> Login </a>
+        </div>
+    </nav>
+
+    <div class="mainContents">
+        <div class="content-firstLine">
+            <span class="tabTitle">Login</span>
+        </div>
+        
+        <div class="login-card">
+            <div class="login-oneLine">
+                <div class="login-attName" > E-mail: </div> 
+                <input class="login-input" type="text" id="Email" placeholder="Email" required/>
+            </div>
+            <div class="login-oneLine">
+                <div class="login-attName"> Password: </div> 
+                <input class="login-input" type="password" id="Password" placeholder="Password" required/>
+                <a class="login-forgetBtt" href="#" onclick="forgetPassword()">Forget Password?</a>    
+            </div>
+            <div class="login-oneLine" style="margin-top: 50px;">
+                <a href="#" class="login-loginBtt" onclick="checkLogin()"> Login </a>
+                <a href="register.html" class="login-navRegister"> Do not have an account?  Register! </a>
+
+            </div>
+
+            <div class="greyCover" id='cover'> </div>    
+        </div>
+    </div>
+    
+    <div class="pumpWindow" id="winForgetPass">
+        <div class="winHeader">
+            <span>Forget Password</span>
+            <img src="pics/close.png" class="closePic" onmouseover="redClosePic(this)" onmouseout="orgClosePic(this)" onclick="closePump()" alt="close window">
+        </div>
+        <div>
+            <h5 class="forget-notice">Please enter your <span class="forget-em">registered</span> E-mail and phone number:</h5>
+            <div style="margin-top: 20px;">
+                <div class="forget-attName">Email:</div>
+                <input class="login-input" type="text" id="find-email" placeholder="Email" required/>
+            </div>
+            <div>
+                <div class="forget-attName">Phone Number:</div>
+                <input class="login-input" type="text" id="find-phoneNumber" placeholder="Phone Number" required/>
+            </div>
+            <div style="margin-top: 50px;">
+                <a href="#" class="forget-btt" onclick="submitPersonalInfo()"> Reset Password </a>
+            </div>
+        </div>
+    </div>
+    <div class="pumpWindow" id="winResetPass">
+        <div class="winHeader">
+            <span>Reset Password</span>
+            <img src="pics/close.png" class="closePic" onmouseover="redClosePic(this)" onmouseout="orgClosePic(this)" onclick="closePump()" alt="close window">
+        </div>
+        <div>
+            <h5 class="forget-notice">Please enter your new password and confirm it:</h5>
+            <div style="margin-top: 20px;">
+                <div class="forget-attName-reset"> New Password: </div>
+                <input class="login-input" type="text" id="newPassword" required onblur="changePasswordImg()"/>
+                <img src="pics/wrong.png" alt="rePasswordImg" id="newPasswordImg" style="visibility:hidden;position:relative;top:6px;left:5px;" width="20" height="20">
+            </div>
+            <div>
+                <div class="forget-attName-reset"> Confirm Password: </div>
+                <input class="login-input" type="text" id="confirmPassword" required onblur="changeRePasswordImg()"/>
+                <img src="pics/wrong.png" alt="rePasswordImg" id="confirmPasswordImg" style="visibility:hidden;position:relative;top:6px;left:5px;" width="20" height="20">
+            </div>
+            <div style="margin-top: 50px;">
+                <a id="confChangePass" href=" " class="forget-btt" style="width:150px; margin-left: 230px;" onclick="submitNewPass(this)"> Submit </a >
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

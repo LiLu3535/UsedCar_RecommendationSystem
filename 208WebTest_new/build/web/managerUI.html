@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Used-Car Trading System - Manager Home Page</title>
+
+    <link rel="stylesheet" href="assets/webStyles.css">
+    <script src="assets/js/JS_managerUI.js"></script>
+    <script src="assets/js/JS_top.js"></script>
+</head>
+    
+<body>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <div class="loadCover" id='loadingNote' style="z-index: 500 "> <span class="loadText">Loading!</span> </div>
+    <nav class="navBG">
+        <div class="logoPic"></div>
+        <div id="nav-picRight">
+            <div class="pageTitle">Used Car Trading System</div>
+            <div style="margin-top: 10px;">
+                <a href="#" class="menuItems topMenu" style="margin-left:120px;">Manager Home</a>
+
+            </div>
+            <a href='#' class="loginBtt" id="loginBtt" onclick="logOut()"> Login </a>  
+        </div>
+    </nav>
+ 
+
+    <div class="manager-mainContents">
+
+        <div class="manager-tabBox">
+            <a href="javascript:void(0);" id="memberBtt" class="manager-tab" onclick="showMemberTable()" style="background-color: #aa4e01">Member Information</a>
+            <a href="javascript:void(0);" id="carBtt" class="manager-tab" onclick="showCarTable()">Car Information</a>
+        </div>
+
+        <div class="manager-tableContents">
+            <table class="managerView memberInfo" id="memberTableID">
+                <tr>
+                    <th style="width:400px;">E-mail</th>
+                    <th style="width:200px;">Other Name(s)</th>
+                    <th style="width:200px;">Last Name</th>
+                    <th style="width:250px;">Phone Number</th>
+                    <th style="width:200px;">Actions</th>
+                </tr>
+                
+            </table>
+
+            <table class="managerView carInfo" id="carTableID">
+                <tr>
+                    <th style="width:200px;">Make</th>
+                    <th style="width:100px;">Model</th>
+                    <th style="width:100px;">Price</th>
+                    <th style="width:120px;">Register Date</th>
+                    <th style="width:100px;">Mileage</th>
+                    <th style="width:80px;">Fuel Consumption</th>
+                    <th style="width:70px;">Power Type</th>
+                    <th style="width:150px;">Note</th>
+                    <th style="width:200px;">Actions</th>
+                </tr>
+                
+            </table>
+        </div>
+    </div>
+
+  <div class="greyCover" id='cover'> </div>   
+  
+  <div class="manager-memberPumpWindow" id="editMemberWindow" >
+        <div class="winHeader">
+            <span>Edit Member Information</span>
+            <img src="pics/close.png" class="closePic" onmouseover="redClosePic()" onmouseout="orgClosePic()" onclick="closePump()" alt="close window">
+        </div>
+        <div>
+            <div style="margin-top: 40px;">
+                <div class="forget-attName"> Email:</div>
+                <input class="login-input" type="text" id="edit-email" required/>
+            </div>
+            <div>
+                <div class="forget-attName"> Other Name(s): </div>
+                <input class="login-input" type="text" id="edit-otherName" required/>
+            </div>
+            <div>
+                <div class="forget-attName"> Last Name: </div>
+                <input class="login-input" type="text" id="edit-lastName" required/>
+            </div>
+            <div>
+                <div class="forget-attName"> Phone Number: </div>
+                <input class="login-input" type="text" id="edit-phone" required/>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <a id="memberEdit-confirm" href="#" class="forget-btt" style="width:150px; margin-left: 230px;" onclick="confirmMemberEdit(this)"> Confirm </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="manager-carPumpWindow" id="editCarWindow">
+        <div class="winHeader">
+            <span>Edit Car Information</span>
+            <img src="pics/close.png" class="closePic" onmouseover="redClosePic()" onmouseout="orgClosePic()" onclick="closePump()" alt="close window">
+        </div>
+        <div class="manager-pumpWindowContent">
+            <div>
+                <div class="manager-editCar-attName"> Make: </div>
+                <select id="edit-selectMake" class="selectModel"  onchange="addOptions(this.value)">
+                    <option value ="0">Select</option>
+                    <option value ="1">Audi</option>
+                    <option value ="2">BMW</option>
+                    <option value ="3">Ford</option>
+                    <option value ="4">Honda</option>
+                    <option value ="5">Jeep</option>
+                    <option value ="6">Land Rover</option>
+                    <option value ="7">Mazda</option>
+                    <option value ="8">Mercedes-Benz</option>
+                    <option value ="9">Porsche</option>
+                    <option value ="10">Skoda</option>
+                    <option value ="11">Volkswagen</option>
+                    <option value="12">Volve</option>
+                </select>
+            </div>
+            <div>
+                <div class="manager-editCar-attName"> Model: </div>
+                <select id="edit-selectModel" class="selectModel" >
+                    <option value ="noMake" class="noRestrict">Select</option>
+                </select>
+            </div>
+            <div>
+                <div class="manager-editCar-attName"> Price: <span class="getRec-poundSign" style="margin-left: 100px; color: dimgrey;">£</span></div>
+                <input class="upload-input" type="text" id="edit-price" required/>
+            </div>
+            <div>
+                <div class="manager-editCar-attName"> Register Date: </div>
+                <input class="upload-input" type="date" id="edit-year" required/>
+            </div>
+            <div>
+                <div class="manager-editCar-attName"> Mileage: </div>
+                <input class="upload-input" type="text" id="edit-milage" required/>
+                <span class="upload-unitTag">miles</span>
+            </div>
+            <div>
+                <div class="manager-editCar-attName"> Fuel Consumption: </div>
+                <input class="upload-input" type="text" id="edit-fuelConsumption" required/>
+                <span class="upload-unitTag">mpg</span>
+            </div>
+            <div>
+                <div class="manager-editCar-attName"> Power Type: </div>
+                <label class="getRec-radio"><input type="radio" name="powertype" id="edit-petrol"/><span class="getRec-radioBtt">Petrol</span></label>
+                <label class="getRec-radio"><input type="radio" name="powertype" id="edit-diesel"/><span class="getRec-radioBtt">Diesel</span></label>
+                <label class="getRec-radio"><input type="radio" name="powertype" id="edit-electric"/><span class="getRec-radioBtt">Electric</span></label>
+            </div>
+            <div>
+                <div class="manager-editCar-attName"> Note:</div>      
+                <textarea id="edit-note" cols="50"   rows="4"   style="OVERFLOW:hidden; margin-top: 10px"></textarea>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <a id="carEdit-confirm" href="javascript:void(0);" class="forget-btt" style="width:150px; margin-left: 350px;" onclick="confirmCarEdit(this)"> Confirm </a>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>

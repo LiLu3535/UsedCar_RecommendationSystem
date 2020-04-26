@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Used-Car Trading System - Register</title>
+    <link rel="stylesheet" href="assets/webStyles.css">
+    <script src="assets/js/JS_register.js"></script>
+    <script src="assets/js/JS_top.js"></script>
+</head>
+    
+<body>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <nav class="navBG">
+        <div class="logoPic"></div>
+        <div id="nav-picRight">
+            <div class="pageTitle">Used Car Trading System</div>
+            <div style="margin-top: 10px;">
+                <a href="index.html" class="menuItems topMenu" style="margin-left:120px;">Home</a>
+                <span class="menuItems colorLightGray">|</span>
+
+                <a href="GetRecommendations.html" class="menuItems topMenu">Get Recommendations</a>
+                <span class="menuItems colorLightGray">|</span>
+
+                <a href="#" class="menuItems uploadCar" onclick="checkEnterUploadPage()">Upload Used Car</a>
+            </div>
+            <a href='login.html' class="loginBtt" id="loginBtt" onclick="logOut()"> Login </a>  
+        </div>
+    </nav>
+ 
+
+    <div class="mainContents" >
+
+        <div class="content-firstLine">
+            <span class="tabTitle">Register</span>
+        </div>
+   
+        <div class="rec-card">
+            <div style="margin:0; padding-top:30px;padding-bottom: 30px;">
+                <div class="register-oneLine">
+                    <div class="register-attName" ><span style="color: red">*</span> E-mail: </div> 
+                    <input class="login-input" type="text" id="Email" placeholder="Email" required onblur="changeEmailImg()"/>
+                    <img src="#" alt="emailImg" id="emailImg" style="visibility:hidden;position:relative;top:6px;left:5px;" width="20" height="20">
+                </div>
+                <div class="register-oneLine">
+                    <div class="register-attName"><span style="color: red">*</span> Password: </div> 
+                    <input class="login-input" type="password" id="Password" placeholder="Password" required onblur="changePasswordImg()"/>
+                    <img src="#" alt="passwordImg" id="passwordImg" style="visibility:hidden;position:relative;top:6px;left:5px;" width="20" height="20">
+                </div>
+                <div class="register-oneLine">
+                <div class="register-attName" style="font-size: 17pt"><span style="color: red">*</span> Confirm Password: </div> 
+                <input class="login-input" type="password" id="Conf_Password" placeholder="" required onblur="changeRePasswordImg()"/>
+                <img src="#" alt="rePasswordImg" id="rePasswordImg" style="visibility:hidden;position:relative;top:6px;left:5px;" width="20" height="20">
+                </div>
+                <div class="register-oneLine">
+                    <div class="register-attName"><span style="color: red">*</span> Last Name: </div> 
+                    <input class="login-input" type="text" id="LastName" placeholder="" required onblur="changeLastNameImg()"/>
+                    <img src="#" alt="lastNameImg" id="lastNameImg" style="visibility:hidden;position:relative;top:6px;left:5px;" width="20" height="20">
+                </div>
+                <div class="register-oneLine">
+                    <div class="register-attName"><span style="color: red">*</span> Other Name(s): </div> 
+                    <input class="login-input" type="text" id="OtherNames" placeholder="" required onblur="changeOtherNameImg()"/>
+                    <img src="wrong.png" alt="otherNameImg" id="otherNameImg" style="visibility:hidden;position:relative;top:6px;left:5px;" width="20" height="20">
+                </div>
+                <div class="register-oneLine">
+                    <div class="register-attName"><span style="color: red">*</span> Phone Number: </div> 
+                    <input class="login-input" type="text" id="Phone" placeholder="" required onblur="changePhoneImg()"/>
+                    <img src="#" alt="phoneImg" id="phoneImg" style="visibility:hidden;position:relative;top:6px;left:5px;" width="20" height="20">
+                </div>
+                <div class="register-oneLine" style="margin-top: 50px;">
+                    <span style="color: red">*</span>
+                    <input type="checkbox" name="userPrivacy" value="privacyBox" class="login-notice"/> I agree to the 
+                    <a href="termsOfUse.html" class="register-policyHref" target="_blank"> terms of use </a> and 
+                    <a href="privacyPolicy.html" class="register-policyHref" target="_blank">privacy policy</a> of this website.
+                <br/>
+                    <span style="color: red">*</span>
+                    <input type="checkbox" name="ageCheck" value="ageBox" class="login-notice"/> I am over 17 years old.
+                <br/>
+                    <span style="color: red">*</span>
+                    <input type="checkbox" name="eligibleCheck" value="eligibleBox" class="login-notice"/> I am eligible to drive.
+
+                </div>
+
+
+                <div class="register-oneLine" style="margin-top: 50px;">
+                    <a href="#" class="login-loginBtt" onclick="submitInfo()" style="margin-left: 180px;"> Register </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Used-Car Trading System - Upload Car</title>
+    <link rel="stylesheet" href="assets/webStyles.css">
+    <script src="assets/js/JS_uploadCar.js"></script>
+    <script src="assets/js/JS_top.js"></script>
+</head>
+    
+<body>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <nav class="navBG">
+        <div class="logoPic"></div>
+        <div id="nav-picRight">
+            <div class="pageTitle">Used Car Trading System</div>
+            <div style="margin-top: 10px;">
+                <a href="index.html" class="menuItems topMenu" style="margin-left:120px;">Home</a>
+                <span class="menuItems colorLightGray">|</span>
+
+                <a href="GetRecommendations.html" class="menuItems topMenu">Get Recommendations</a>
+                <span class="menuItems colorLightGray">|</span>
+
+                <a href="#" class="menuItems uploadCar" onclick="checkEnterUploadPage()">Upload Used Car</a>
+            </div>
+            <a href='login.html' class="loginBtt" id="loginBtt" onclick="logOut()"> Login </a>  
+        </div>
+    </nav>
+ 
+
+    <div class="mainContents" >
+        
+        <div class="content-firstLine">
+            <span class="tabTitle">Upload Used Car</span>
+        </div>
+
+        <div class="rec-card">
+            <div style="margin:0; padding-top:30px;padding-bottom: 30px;">
+                <div class="upload-oneLine">
+                    <div class="upload-attName"><span style="color: red">*</span>Make: </div> 
+                    <select id="carBrand" class="selectModel" style="margin-right: 150px; " onchange="dynamicAddingModel()">
+                        <option value ="noMake" class="noRestrict">Select</option>
+                        <option value ="Audi">Audi</option>
+                        <option value ="BMW">BMW</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Honda">Honda</option>
+                        <option value ="Jeep">Jeep</option>
+                        <option value ="Land Rover">Land Rover</option>
+                        <option value="Mazda">Mazda</option>
+                        <option value="Mercedes-Benz">Mercedes_benz</option>
+                        <option value ="Porsche">Porsche</option>
+                        <option value ="Skoda">Skoda</option>
+                        <option value="Volkswagen">Volkswagen</option>
+                        <option value="Volvo">Volvo</option>
+                    </select>
+                    <div class="upload-attName"><span style="color: red">*</span> Model: </div> 
+                    <select class="selectModel" id ="carModel" >
+                        <option value ="Select">Select</option>
+                    </select>
+                </div>
+
+                <div class="upload-oneLine">
+                    <div class="upload-attName">
+                        <span style="color: red">*</span> 
+                        Price: 
+                        <span class="getRec-poundSign" style="margin-left: 80px; color: dimgrey;">£</span>
+                    </div> 
+                    <input class="upload-input" type="text" id="carPrice" placeholder="" required/>
+
+                </div>
+
+                <div class="upload-oneLine">
+                    <div class="upload-attName" style="font-size: 16pt; width:250px;"><span style="color: red">*</span> Date Registered: </div> 
+                     <input class="upload-input" type="date" id="carRigsteredDate" required/>
+                </div>
+
+                <div class="upload-oneLine">
+                    <div class="upload-attName" style="width: 250px;"><span style="color: red">*</span> Mileage: </div> 
+                    <input class="upload-input" type="text" id="carMilegae" placeholder="" required/>
+                    <span class="upload-unitTag">miles</span>
+                </div>
+
+                <div class="upload-oneLine">
+                    <div class="upload-attName" style="font-size: 16pt; width: 250px;"><span style="color: red">*</span> Fuel Consumption: </div> 
+                    <input class="upload-input" type="text" id="carFuelConsumption" placeholder="" required/>
+                    <span class="upload-unitTag">mpg</span>
+                </div>
+
+                <div class="upload-oneLine">
+                    <div class="upload-attName" style="font-size: 16pt; width: 250px;"><span style="color: red">*</span> Power Type: </div> 
+                    <label class="getRec-radio"><input type="radio" name="powertype" value="Petrol"/><span class="upload-radioBtt" >Petrol</span></label>
+                    <label class="getRec-radio"><input type="radio" name="powertype" value="Diesel"/><span class="upload-radioBtt">Diesel</span></label>
+                    <label class="getRec-radio"><input type="radio" name="powertype" value="Electric"/><span class="upload-radioBtt">Electric</span></label>
+                </div>
+
+                <div class="upload-oneLine">
+                    <div class="upload-attName"><div style="position: relative; top:-55px;left:15px; width: 250px"> Note:</div> </div> 
+                    <textarea cols="60" rows="6"   style="overflow-y: scroll; margin-top: 10px;resize:none;" id="carNote"></textarea>
+                </div>
+
+                <div class="register-oneLine" style="margin-top: 50px;">
+                    <a href="#" class="login-loginBtt" style="margin-left: 160px;" onclick="getUploadedCar()"> Upload This Car </a>
+                </div>
+
+            </div>
+        </div>
+    </div>  
+</body>
+</html>

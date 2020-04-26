@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Get Recommendations - Get Recommendations</title>
+
+    <link rel="stylesheet" href="assets/webStyles.css">
+    <script src="assets/js/JS_getRecs.js"></script>
+    <script src="assets/js/JS_top.js"></script>
+</head>
+    
+<body>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <nav class="navBG">
+        <div class="logoPic"></div>
+        <div id="nav-picRight">
+            <div class="pageTitle">Used Car Trading System</div>
+            <div style="margin-top: 10px;">
+                <a href="index.html" class="menuItems topMenu" style="margin-left:120px;">Home</a>
+                <span class="menuItems colorLightGray">|</span>
+
+                <a href="GetRecommendations.html" class="menuItems topMenu">Get Recommendations</a>
+                <span class="menuItems colorLightGray">|</span>
+
+                <a href="#" class="menuItems uploadCar" onclick="checkEnterUploadPage()">Upload Used Car</a>
+            </div>
+            <a href='login.html' class="loginBtt" id="loginBtt" onclick="logOut()"> Login </a>  
+        </div>
+    </nav>
+
+    <div class="mainContents">
+        <div class="content-firstLine">
+            <span class=" tabTitle">Get Recommendations</span>
+        </div>
+
+        <!-- Hard Recommendation Card -->   
+        <!-- card header -->
+        <div class="rec-card">
+            <div class="cardTitleLine">
+                <span class="cardTitle">Hard Recommendation</span>
+            </div>
+            <div>
+                <div class="cardNotice">The recommendation will strictly follow conditions below:</div>
+                <div>
+                    <div class="rec-hard-attName"> Make: </div>
+                    <select id="getRec_selectMake" class="selectModel" onchange="addOptions(this.value)">
+                        <option value ="0" class="noRestrict">Any</option>
+                        <option value ="1">Audi</option>
+                        <option value ="2">BMW</option>
+                        <option value ="3">Ford</option>
+                        <option value ="4">Honda</option>
+                        <option value ="5">Jeep</option>
+                        <option value ="6">Land Rover</option>
+                        <option value ="7">Mazda</option>
+                        <option value ="8">Mercedes-Benz</option>
+                        <option value ="9">Porsche</option>
+                        <option value ="10">Skoda</option>
+                        <option value ="11">Volkswagen</option>
+                        <option value="12">Volve</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="rec-hard-attName"> Model: </div>
+                    <select id="getRec_selectModel" class="selectModel" disabled="disabled">
+                        <option value ="noMake" class="noRestrict">Any</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="rec-hard-attName"> Price: </div>
+                    <span class="attAssWord">(Min)</span>
+                    <span class="getRec-poundSign">£</span>
+                    <input class="attInput" type="text" placeholder="Any" id="minPrice"/>
+                    <span class="attAssWord">(Max)</span>
+                    <span class="getRec-poundSign">£</span>
+                    <input class="attInput" type="text" placeholder="Any" id="maxPrice"/>
+                </div>
+  
+                <div>
+                    <div class="rec-hard-attName"> Age: </div>
+                    <span class="attAssWord">(Min)</span>
+                    <input class="attInput" style="margin-right: 10px" type="text" placeholder="Any" id="minYear"/>
+                    <span style="color: grey; margin-right: 30px">year(s)</span>
+                    <span class="attAssWord">(Max)</span>
+                    <input class="attInput" style="margin-right: 10px" type="text" placeholder="Any" id="maxYear"/>
+                    <span style="color: grey">year(s)</span>
+                </div>
+                
+                <div>
+                    <div class="rec-hard-attName"> Mileage: </div>
+                    <span class="attAssWord">At least:</span>
+                    <input class="attInput" type="text" placeholder="Any" style="margin-right: 10px" id="mileage"/>
+                    <span style="color: grey">miles</span>
+                </div>
+                
+                <div>
+                    <div class="rec-hard-attName"> Fuel Consumption: </div>
+                    <label class="getRec-radio"><input type="radio" value="Any" name="fuelConsumption" checked="checked"/><span class="upload-radioBtt">Any</span></label>
+                    <label class="getRec-radio"><input type="radio" value="15" name="fuelConsumption"/><span class="upload-radioBtt">15+ mpg</span></label>
+                    <label class="getRec-radio"><input type="radio" value="20" name="fuelConsumption"/><span class="upload-radioBtt">20+ mpg</span></label>
+                    <label class="getRec-radio"><input type="radio" value="30" name="fuelConsumption"/><span class="upload-radioBtt">30+ mpg</span></label>
+                    <label class="getRec-radio"><input type="radio" value="40" name="fuelConsumption"/><span class="upload-radioBtt">40+ mpg</span></label>
+                    <label class="getRec-radio"><input type="radio" value="50" name="fuelConsumption"/><span class="upload-radioBtt">50+ mpg</span></label>
+
+                </div>
+
+                <div>
+                    <div class="rec-hard-attName"> Power Type: </div>
+                    <label class="getRec-radio"><input type="radio" value="Any" name="powertype" checked="checked"/><span class="upload-radioBtt">Any</span></label>
+                    <label class="getRec-radio"><input type="radio" value="Petrol" name="powertype"/><span class="upload-radioBtt">Petrol</span></label>
+                    <label class="getRec-radio"><input type="radio" value="Diesel" name="powertype"/><span class="upload-radioBtt">Diesel</span></label>
+                    <label class="getRec-radio"><input type="radio" value="Electric" name="powertype"/><span class="upload-radioBtt">Electric</span></label>
+                </div>
+                
+                
+            </div>
+        </div>
+
+        <!-- Soft Recommendation Card -->   
+        <div style="margin-top: 30px;" class="rec-card">
+            <div >
+                <div class="cardTitleLine">
+                    <span class="cardTitle">Soft Recommendation</span>
+                </div>
+
+                <div>
+                    <!- Attribute: Make -->
+                    <div class="softRec-AttCard">
+                        <div class="softRec-AttName">Make</div>
+                        <div class="softRec-AssistName">Preferred Value:</div>
+                        <div>
+                            <select id="getRec_softSelectMake" class="softRec-input" onchange="addOptions_soft(this.value)">
+                                <option value ="0" class="noRestrict">Any</option>
+                                <option value ="1">Audi</option>
+                                <option value ="2">BMW</option>
+                                <option value ="3">Ford</option>
+                                <option value ="4">Honda</option>
+                                <option value ="5">Jeep</option>
+                                <option value ="6">Land Rover</option>
+                                <option value ="7">Mazda</option>
+                                <option value ="8">Mercedes-Benz</option>
+                                <option value ="9">Porsche</option>
+                                <option value ="10">Skoda</option>
+                                <option value ="11">Volkswagen</option>
+                                <option value="12">Volve</option>
+                            </select>
+                        </div>
+
+                        <div class="softRec-AssistName">Priority Level:</div>
+                        <div class="softRec-fiveStars">
+                            <ul id="fiveStars1" onmouseover="showStar('fiveStars1')">
+                                <li><a href="javascript:;">1</a></li>
+                                <li><a href="javascript:;">2</a></li>
+                                <li><a href="javascript:;">3</a></li>
+                                <li><a href="javascript:;">4</a></li>
+                                <li><a href="javascript:;">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!- Attribute: Model -->
+                    <div class="softRec-AttCard">
+
+                        <div class="softRec-AttName">Model</div>
+                        <div class="softRec-AssistName">Preferred Value:</div>
+                        <div>
+                            <select id="getRec_softSelectModel" class="softRec-input" disabled="disabled">
+                                <option value ="noMake" class="noRestrict">Any</option>
+                            </select>
+                        </div>
+
+                        <div class="softRec-AssistName">Priority Level:</div>
+                        <div class="softRec-fiveStars">
+                            <ul id="fiveStars2" onmouseover="showStar('fiveStars2')">
+                                <li><a href="javascript:;">1</a></li>
+                                <li><a href="javascript:;">2</a></li>
+                                <li><a href="javascript:;">3</a></li>
+                                <li><a href="javascript:;">4</a></li>
+                                <li><a href="javascript:;">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!- Attribute: Price -->
+                    <div class="softRec-AttCard">
+
+                        <div class="softRec-AttName">Price</div>
+                        <div class="softRec-AssistName">Preferred Value:</div>
+                        <span class="getRec-soft-poundSign">£</span>
+                        <input class="softRec-input" type="text" placeholder="Any" style="margin-left: 5px;" id="softPrice"/>
+                        <div class="softRec-AssistName">Priority Level:</div>
+                        <div class="softRec-fiveStars">
+                            <ul id="fiveStars3" onmouseover="showStar('fiveStars3')">
+                                <li><a href="javascript:;">1</a></li>
+                                <li><a href="javascript:;">2</a></li>
+                                <li><a href="javascript:;">3</a></li>
+                                <li><a href="javascript:;">4</a></li>
+                                <li><a href="javascript:;">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!- Attribute: Age -->
+                    <div class="softRec-AttCard">
+
+                        <div class="softRec-AttName">Age</div>
+                        <div class="softRec-AssistName">Preferred Value:</div>
+                        <input class="softRec-input" type="text" placeholder="Any" id="softYear"/>
+                        <span style="color: grey">year(s)</span>
+                        <div class="softRec-AssistName">Priority Level:</div>
+                        <div class="softRec-fiveStars">
+                            <ul id="fiveStars4" onmouseover="showStar('fiveStars4')">
+                                <li><a href="javascript:;">1</a></li>
+                                <li><a href="javascript:;">2</a></li>
+                                <li><a href="javascript:;">3</a></li>
+                                <li><a href="javascript:;">4</a></li>
+                                <li><a href="javascript:;">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!- Attribute: Mileage -->
+                    <div class="softRec-AttCard">
+
+                        <div class="softRec-AttName">Mileage</div>
+                        <div class="softRec-AssistName">Preferred Value:</div>
+                        <input class="softRec-input" type="text" placeholder="Any" id="softMileage"/>
+                        <span style="color: grey">miles</span>
+                        <div class="softRec-AssistName">Priority Level:</div>
+                        <div class="softRec-fiveStars">
+                            <ul id="fiveStars5" onmouseover="showStar('fiveStars5')">
+                                <li><a href="javascript:;">1</a></li>
+                                <li><a href="javascript:;">2</a></li>
+                                <li><a href="javascript:;">3</a></li>
+                                <li><a href="javascript:;">4</a></li>
+                                <li><a href="javascript:;">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!- Attribute: Fuel Consumption -->
+                    <div class="softRec-AttCard">
+
+                        <div class="softRec-AttName">Fuel Consumption</div>
+                        <div class="softRec-AssistName">Preferred Value:</div>
+                        <input class="softRec-input" type="text" placeholder="Any" id="softFuelCons"/>
+                        <span style="color: grey">mpg</span>
+                        <div class="softRec-AssistName">Priority Level:</div>
+                        <div class="softRec-fiveStars">
+                            <ul id="fiveStars6" onmouseover="showStar('fiveStars6')">
+                                <li><a href="javascript:;">1</a></li>
+                                <li><a href="javascript:;">2</a></li>
+                                <li><a href="javascript:;">3</a></li>
+                                <li><a href="javascript:;">4</a></li>
+                                <li><a href="javascript:;">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div style="padding-top:50px;">
+            <a href="#" class="login-loginBtt" style="margin-left: 350px;" onclick="recResultUpload()"> Get Recommendations </a> 
+        </div>
+
+    </div>
+</body>
+</html>

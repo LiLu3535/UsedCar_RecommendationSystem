@@ -1,0 +1,987 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 8, 2020, 5:14:51 PM
+    Author     : 俞静吉
+*/
+
+body{
+    font-family: "Calibri";
+    text-decoration: none;
+    font-size: 14pt;
+    margin:0 auto;
+}
+
+li{
+    list-style-type:none;
+}
+
+.navBG{
+    position: fixed; 
+    min-width: 1000px;
+    width:100%;
+    z-index:100; 
+    height:120px;
+    background-color:#333b3f; 
+}
+
+.logoPic{
+    border-radius: 50%;
+    float:left;
+    height:100px;
+    width:100px; 
+    margin-top: 10px; 
+    margin-left: 5%;
+    box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.4);
+    background: url(../pics/carLOGO.png);
+    background-position: 5px 30px;
+    background-size: 90px 35px;
+    background-repeat:no-repeat;
+}
+
+.cookieDiv{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height:40px;
+    background-color: tomato;
+    color: white;
+    text-align: center;
+    font-size: 14pt;
+    line-height: 40px;
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+.cookie-text{
+    margin-left: 2px;
+    margin-right: 2px;
+    text-decoration: underline;
+    color: #F8CA03;
+}
+
+.menuItems{
+    float: left;
+    padding-right: 2%;
+    padding-top: 15px;
+    font-size: 18pt;
+    line-height: 18pt;
+    color: lightblue;
+    text-decoration: none;
+}
+
+.colorLightGray{
+    color: lightgray;
+}
+
+.mainContents{
+    min-width: 950px;
+    max-width: 1150px; 
+    padding-bottom: 100px;
+    position: absolute; 
+    margin-top: 120px; 
+    width: 80%; 
+    left:10%;
+}
+
+.pageTitle{
+    padding-left: 40%;
+    font-size:24pt;
+    color: lightgray;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.content-firstLine{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.tabTitle{
+    font-size:18pt;
+    font-style: normal;
+    color: lightslategray;
+}
+
+a.topMenu:hover{
+    color:  yellow; 
+}
+
+.uploadCar{
+    color: tomato;
+}
+
+a.uploadCar:hover{
+    color:  yellow;  
+}
+
+
+.loginBtt{
+    float:right;
+    border-radius: 5px;
+    width:100px;
+    line-height: 40px;
+    background-color: lightblue;
+    height: 40px;
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 100px;
+    color: #1a252f;
+    text-decoration: none;
+}
+
+.loginBtt:hover{
+    background-color: #cb5a07;
+    color: white;
+}
+
+.front-underTitle{
+    max-width: 1150px; 
+    align-items:center; 
+    min-width: 950px;
+}
+
+.front-carList li{
+    height: 150px;
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    box-shadow: 6px 6px 10px 3px rgba(0,127,80,0.2);
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.loadCover{
+    position: fixed;
+    background-color: #145d91;
+    text-align: center;
+    color: lightblue;
+    font-size: 50pt;
+    width: 100%;
+    height: 100%;
+}
+
+.loadText{
+    left:45%;
+    top:45%;
+    position: fixed;
+}
+
+.front-picRec{
+    background-color: #003872; 
+    width: 160px;
+    height:120px;
+}
+
+.front-car-card{
+    line-height: 150px;
+    width:100%;
+    border-radius: 5px;
+    border:2px;
+    border-color: lightblue;
+    background-color: white;
+    box-shadow: 6px 6px 5px 3px rgba(0,127,80,0.2);
+}
+
+
+.front-card-make{
+    line-height: 40px;
+    font-weight: bold; 
+    font-size: 18pt;
+}
+
+.front-car-model{
+    line-height: 40px;
+    padding-left: 5px; 
+    font-weight: bold; 
+    font-size: 18pt;
+}
+.front-car-price{
+    color: #c40303;     /* price in dark red color */
+    line-height: 40px;
+    float: right; 
+    font-weight: bold; 
+    font-size: 18pt;
+}
+.front-attName{
+    color: gray;
+    font-size: 14pt;
+    padding-right: 5px;
+}
+.front-attValue{
+    color: #002070;
+    font-size: 14pt;
+    padding-left: 5px;
+}
+.front-ageUnit{
+    color: tomato;
+    font-size: 12pt;
+    padding-left: 5px;
+}
+.front-car-left{
+    width: 20%;
+    display: inline-block;
+    padding-top: 15px;
+}
+
+.front-car-right{
+    width: 76%;
+    display: inline-block;
+
+}
+
+.front-car-detailBlock{
+    width:40%;
+    display: inline-block;
+}
+
+.front-car-detailBtt{
+    text-decoration: none;
+    border-radius: 5px;
+    line-height: 40px;
+    background-color: #0044DD;
+    height: 40px;
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+    margin-left: 610px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+}
+.front-car-detailBtt:hover{
+    background-color: tomato;
+    color: white;
+}
+
+.front-detailWindow{
+    position: fixed;
+    left:20%;
+    top: 10%;
+    right: 20%;
+    bottom: 0%;
+    background: #fff;
+    border-radius: 5px;
+    margin: 5% auto;
+    z-index: 40;
+}
+
+.front-startTransWindow{
+    position: fixed;
+    left:30%;
+    top: 20%;
+    right: 30%;
+    bottom: 10%;
+    background: #fff;
+    border-radius: 5px;
+    margin: 5% auto;
+    z-index: 100;
+}
+
+.front-detail-leftBox{
+    display: inline-block;
+    width: 50%;
+}
+
+.front-detailAttName-left{
+    width: 170px;
+    margin-left: 90px;
+    display: inline-block;
+    line-height: 40pt;
+    color: #003872;
+    font-size: 14pt;
+    font-weight: bold;
+}
+.front-detailAttName-right{
+    width: 160px;
+    margin-left: 0;
+    display: inline-block;
+    line-height: 40pt;
+    color: #003872;
+    font-size: 14pt;
+    font-weight: bold;
+}
+.front-detailAttValue{
+    line-height: 40pt;
+    color: #1a252f;
+    font-size: 14pt;
+}
+
+.front-detailPoundSign{
+    font-size: 16pt;
+    color: tomato;
+    margin-left: 90px;
+    font-style: normal;
+}
+
+.front-detail-unit{
+    color: tomato;
+    font-size: 14pt;
+    margin-left: 5px;
+}
+
+.front-pumpDetailContent{
+    padding-top: 20px;
+}
+
+.front-detailNoteContent{
+    width: 450px;
+    height: 100px;
+    font-size: 12pt;
+    color: #1a252f;
+    overflow-wrap: initial;
+    overflow-y: scroll;
+    display: inline-block;
+    background-color: #fbfae9;
+    padding-left: 5px;
+}
+
+.front-startTransAttName{
+    width: 150px;
+    margin-left: 100px;
+    display: inline-block;
+    line-height: 50pt;
+    color: #0044DD;
+    font-size: 16pt;
+}
+.front-startTransAttValue{
+    display: inline-block;
+    line-height: 50pt;
+    color: #1a252f;
+    font-size: 16pt;
+}
+
+.front-startTrans-confirmBtt{
+    width:150px; 
+    display: inline-block;
+    border-radius: 5px;
+    line-height: 40px;
+    background-color: #1c7430;
+    height: 40px;
+    font-size: 14pt;
+    font-weight: normal;
+    text-align: center;
+    margin-left: 100px;
+    color: white;
+    text-decoration: none;
+}
+.front-startTrans-confirmBtt:hover{
+    background-color:  #20b426;
+    color: white;
+}
+
+.front-startTrans-cancelBtt{
+    width:150px; 
+    display: inline-block;
+    border-radius: 5px;
+    line-height: 40px;
+    background-color: #c40303;
+    height: 40px;
+    font-size: 14pt;
+    font-weight: normal;
+    text-align: center;
+    margin-left: 100px;
+    color: white;
+    text-decoration: none;
+}
+.front-startTrans-cancelBtt:hover{
+    background-color: #FF0000;
+    color: white;
+}
+
+.rec-card{
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    box-shadow: 6px 6px 10px 3px rgba(0,127,80,0.2);
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.cardTitleLine{
+    text-align: center; 
+    padding-bottom: 30px;
+}
+
+.cardTitle{
+    font-size: 22pt;
+    color:  #002070;
+    line-height: 26px;
+}
+
+.cardNotice{
+    font-size: 13pt;
+    color: lightslategray;
+}
+
+.rec-hard-attName{
+    width: 20%;
+    min-width: 170px;
+    color: #0044DD;
+    font-size: 16pt;
+    line-height: 50px;
+    margin-right: 20px;
+    display:inline-block;
+}
+
+.getRec-poundSign{
+    font-size: 18pt;
+    color:  #1a252f;
+    margin-right: 5px;
+}
+
+.getRec-soft-poundSign{
+    font-size: 16pt;
+    color: darkslategrey;
+    margin-left: 20px;
+}
+
+.getRec-radioBtt{
+    font-weight:normal;
+    margin-left: 5px;
+}
+
+
+.selectModel{
+    margin-top: 10px;
+    width: 150px;
+    height:30px;
+    padding-left: 5px;
+}
+
+.getRec-radio{
+    padding-right:20px;
+}
+
+.attInput{
+    width: 150px;
+    height:30px;
+    margin-top: 10px;
+    padding-left: 10px;
+    margin-right: 40px;
+}
+
+.attAssWord{
+    color: tomato;
+    margin-right: 10px;
+}
+
+.softRec-AttName{
+    padding-top: 10px;
+    text-align: center;
+    color: #003872;
+    font-size: 20pt;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+.softRec-AssistName{
+    text-align: left;
+    padding-left: 20px;
+    color: darkslategray;
+    font-size: 14pt;
+    line-height: 14pt;
+    height:14pt;
+    margin-bottom: 0;
+}
+
+.softRec-AttCard{
+    display: inline-block;
+    height: 200px;
+    width:28%;
+    min-width: 200px;
+    background-color: lightblue;
+    border-radius: 5px;
+    margin-right: 3%;
+    margin-bottom: 15px;
+}
+
+.softRec-input{
+    width: 150px;
+    height:30px;
+    font-size: 14pt;
+    padding-left: 5px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+
+.softRec-fiveStars ul{
+    overflow: hidden;
+    padding-left: 20px; 
+    float: left;
+}
+
+.softRec-fiveStars ul li{
+    float: left;
+    list-style: none;
+    width: 25px;
+    height: 25px;
+    background: url(../pics/stars.png);
+}
+
+.softRec-fiveStars ul li.starLighten{
+    background-position: 0 -29px;
+}
+
+.softRec-fiveStars ul li a{
+    display: block;
+    width: 100%;
+    padding-top: 27px;
+    overflow: hidden;
+}
+
+.login-card{
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    box-shadow: 6px 6px 10px 3px rgba(0,127,80,0.2);
+    padding-top: 80px;
+    padding-left: 50px;
+    padding-right: 30px;
+    padding-bottom: 70px;
+    margin-bottom: 30px;
+}
+
+.login-oneLine{
+    margin-left: 250px;
+}
+
+.login-attName{
+    display:inline-block;
+    font-size: 18pt;
+    color: #003872;
+    line-height: 60px;
+    width:120px;
+}
+
+.login-input{
+    padding-left: 5px;
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.login-notice{
+    margin-left: 3px;
+    font-size: 12pt;
+    color: darkslategrey;
+    margin-right: 5px;
+}
+
+.login-loginBtt{
+    text-decoration: none;
+    border-radius: 5px;
+    width:200px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    line-height: 40px;
+    background-color: #0044DD;
+    height: 40px;
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 80px;
+    color: white;
+}
+
+.login-loginBtt:hover{
+    background-color: tomato;
+    color: white;
+}
+
+.login-navRegister{
+    color: #0044DD;
+    margin-left: 20px; 
+    text-decoration:underline; 
+    font-style: italic
+}
+
+.greyCover{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+.pumpWindow{
+    position: absolute;
+    left:30%;
+    top: 20%;
+    right: 30%;
+    bottom: 10%;
+    background: #fff;
+    border-radius: 5px;
+    margin: 5% auto;
+}
+.winHeader{
+    height: 40px;
+    background-color: #003872;
+    color: white;
+    line-height: 40px;
+    padding-left: 20px;
+}
+
+.closePic{
+    float:right;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 20px;
+    height:20px;
+}
+
+.login-forgetBtt{
+    margin-left: 10px;
+    color: lightslategrey;
+    font-size: 12pt;
+    font-weight: normal;
+}
+
+.login-forgetBtt:hover{
+    color: tomato;
+}
+
+.forget-notice{
+    margin-top: 50px;
+    margin-left: 40px;
+    color: lightslategray;
+    font-size: 14pt;
+    font-style: normal;
+}
+
+.forget-em{
+    text-decoration: underline;
+    font-style: italic;
+    color: tomato;
+}
+
+.forget-attName{
+    width: 170px;
+    margin-left: 100px;
+    display: inline-block;
+    line-height: 16pt;
+    color: #003872;
+    font-size: 16pt;
+}
+
+.forget-attName-reset{
+    width: 200px;
+    margin-left: 80px;
+    display: inline-block;
+    line-height: 16pt;
+    color: #003872;
+    font-size: 16pt;
+}
+
+.forget-btt{
+    border-radius: 5px;
+    width:200px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    line-height: 40px;
+    background-color: #003872;
+    height: 40px;
+    font-size: 14pt;
+    font-weight: normal;
+    text-align: center;
+    margin-left: 200px;
+    color: white;
+    text-decoration: none;
+}
+
+.forget-btt:hover{
+    background-color: tomato;
+    color: white;
+}
+
+
+.forget-confirmNotice{
+    margin-top: 50px;
+    margin-left: 40px;
+    color: #FF0000;
+    font-size: 18pt;
+}
+
+.register-attName{
+    display:inline-block;
+    font-size: 18pt;
+    color: #003872;
+    line-height: 60px;
+    width:250px;
+}
+
+.register-oneLine{
+    margin-left: 200px;
+}
+
+.register-input{
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.register-pumpWindow{
+    position: absolute;
+    left:20%;
+    top: 10%;
+    right: 20%;
+    bottom: 10%;
+    background: #fff;
+    border-radius: 5px;
+    margin: 5% auto;
+}
+
+.register-policyHref{
+    text-decoration: underline;
+    color: #0044DD;
+}
+
+.upload-attName{
+    display:inline-block;
+    font-size: 18pt;
+    color: #0044DD;
+    line-height: 60px;
+    width:200px;
+
+}
+
+.upload-oneLine{
+    margin-left: 100px;
+}
+
+.upload-input{
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+
+.upload-unitTag{
+    margin-left: 10px;
+    color: dimgrey;
+    font-size: 16pt;
+}
+
+.upload-radioBtt{
+    font-weight:normal;
+    margin-left: 5px;
+    font-size: 15pt;
+}
+
+.manager-mainContents{
+    min-width: 900px;
+    padding-bottom: 100px;
+    position: absolute; 
+    margin-top: 120px;  
+    left:10%;
+    right:10%;
+}
+
+.manager-tabBox{
+    color: white; 
+    margin-top: 40px; 
+    margin-bottom: 20px;
+}
+
+.manager-tab{
+    width:200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 16pt;
+    color: white;
+    background-color: #ec9600;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.manager-tab:hover{
+    background-color: tomato;
+}
+
+.tabNotChosen{
+    width:200px;
+    color: #0044DD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 16pt;
+    background-color: white;
+    border: 2px solid;
+    border-color: lightblue;
+    border-radius: 5px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.tabNotChosen:hover{
+    border-color: tomato;
+}
+
+.tabChosen{
+    width:200px;
+    color: #1a252f;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 16pt;
+    border: 2px solid;
+    background-color: white;
+    border-color: #0044DD;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.siteNotice{
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    box-shadow: 6px 6px 10px 3px rgba(0,127,80,0.2);
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 80px;
+    margin-bottom: 30px;
+}
+
+.manager-tableBG1{
+    background-color: #f9f9f9;
+}
+
+.manager-tableBG2{
+    background-color: #e1e1e1;
+}
+
+table.managerView {
+    font-family: verdana,arial,sans-serif;
+    font-size:12pt;
+    color:#333333;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+table.managerView th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+    background-color: #145d91;
+    text-align: center;
+    color: white;
+    font-size: 12pt;
+    font-weight: normal;
+}
+table.managerView td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+    word-break: break-word;
+}
+
+table.memberInfo td:first-child+td+td+td+td {
+    text-align: center;
+}
+
+table.carInfo td:first-child+td+td+td+td+td+td+td+td {
+    text-align: center;
+}
+
+.manager-tableContents{
+    padding-bottom: 100px;
+    padding-top: 50px;
+}
+
+.manager-editBtt{
+    width: 40px;
+    height: 20px;
+    font-size: 12pt;
+    background-color: #23923d;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.manager-editBtt:hover{
+    background-color:  #20b426;
+}
+
+.manager-deleteBtt{
+    width: 40px;
+    height: 20px;
+    font-size: 12pt;
+    background-color: #BF1B00;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.manager-deleteBtt:hover{
+    background-color:   #FF0000;
+}
+.manager-memberPumpWindow{
+    position: fixed;
+    left:30%;
+    top: 20%;
+    right: 30%;
+    bottom: 10%;
+    background: #fff;
+    border-radius: 5px;
+    margin: 5% auto;
+
+}
+.manager-carPumpWindow{
+    position: fixed;
+    left:20%;
+    top: 180px;
+    right: 20%;
+    background: #fff;
+    border-radius: 5px;
+    padding-bottom: 50px;
+}
+
+.manager-pumpWindowContent{
+    padding-top: 30px;
+}
+
+.manager-editCar-attName{
+    width: 200px;
+    margin-left: 150px;
+    display: inline-block;
+    line-height: 30pt;
+    color: #003872;
+    font-size: 16pt;
+}

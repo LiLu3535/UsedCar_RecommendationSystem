@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Used-Car Trading System - Recommendation Results</title>
+
+    <link rel="stylesheet" href="assets/webStyles.css">
+    <script src="assets/js/JS_getRecs.js"></script>
+    <script src="assets/js/JS_top.js"></script>
+</head>
+    
+<body>
+    <nav class="navBG">
+        <div class="logoPic"></div>
+        <div id="nav-picRight">
+            <div class="pageTitle">Used Car Trading System</div>
+            <div style="margin-top: 10px;">
+                <a href="index.html" class="menuItems topMenu" style="margin-left:120px;">Home</a>
+                <span class="menuItems colorLightGray">|</span>
+
+                <a href="GetRecommendations.html" class="menuItems topMenu">Get Recommendations</a>
+                <span class="menuItems colorLightGray">|</span>
+
+                <a href="UploadCar.html" class="menuItems uploadCar">Upload Used Car</a>
+            </div>
+            <a href='login.html' class="loginBtt" id="loginBtt" onclick="logOut()"> Login </a>  
+        </div>
+    </nav>
+ 
+
+    <div class="mainContents">
+        <div class="content-firstLine">
+            <span class="tabTitle">Recommendation Results</span>
+        </div>
+    <!-- Main content -->
+        <div class="front-underTitle">
+            <ul class="front-carList" id="recResults_list">
+                
+            </ul>  
+        </div>
+        </div>
+
+<div class="greyCover" id='coverDetailWindow' style="z-index: 10; "> </div>
+    <div class="greyCover" id='cover_StartTrans' style="z-index: 80;"> </div>
+    <div class="front-detailWindow" id="detailWindow">
+        <div class="winHeader">
+            <span id="detailWinHead"> xxx </span>
+            <img src="pics/close.png" class="closePic" onmouseover="redClosePic()" onmouseout="orgClosePic()" onclick="closePump(this)" alt="close window">
+        </div>
+        <div class="manager-pumpWindowContent">
+            <div>
+                <div class="front-detail-leftBox">
+                    <div class="front-detailAttName-left"> Make: </div>
+                    <span class="front-detailAttValue" id="detail_make"> maaaake </span>
+                </div>
+                <div style="display: inline-block">
+                    <div class="front-detailAttName-right"> Model: </div>
+                    <span class="front-detailAttValue" id="detail_model"> moddddel </span>
+                </div>
+            </div>
+            <div>
+                <div class="front-detail-leftBox">
+                    <div class="front-detailAttName-left"> Price: 
+                        <span class="front-detailPoundSign">£</span></div>
+                    <span class="front-detailAttValue" id="detail_price"> 3455345</span>
+                </div>
+                <div style="display: inline-block">
+                    <div class="front-detailAttName-right"> Year: </div>
+                    <span class="front-detailAttValue" id="detail_year"> 13</span>
+                    <span class="front-detail-unit"> year(s)</span>
+                </div>
+            </div>
+            <div>
+                <div class="front-detail-leftBox">
+                    <div class="front-detailAttName-left"> Mileage: </div>
+                    <span class="front-detailAttValue" id="detail_mileage"> 12331344 </span>
+                    <span class="front-detail-unit"> mile(s)</span>
+                </div>
+                <div style="display: inline-block">
+                    <div class="front-detailAttName-right" style="font-size: 13pt;"> Fuel Consumption: </div>
+                    <span class="front-detailAttValue" id="detail_fuelConsumption"> 42 </span>
+                    <span class="front-detail-unit"> mpg</span>
+                </div>
+            </div>
+            
+            <div>
+                <div class="front-detailAttName-left"> Power Type: </div>
+                <span class="front-detailAttValue" id="detail_powerType"> Electric</span>
+            </div>
+            <div>
+                <div class="front-detailAttName-left" style="position: relative; top:-50px;"> Note:</div>      
+                <div class="front-detailNoteContent"> 
+                    <span id="detail_note">
+                    vvvvvvv iiiiii jjj mmmmm jjjjjjjjj tttt ssssss cccccc aaaaa bbbbbbbbb ddddd eeeeeee 
+                    tttttt rrrrrrr oooooo ffffff sssssssssss rrrrr gggggg ddddddddddddd wwwwwwww qqqq nnnnnn
+                    llllll ppppp uuuuuuuuuuuu nnnnnnn lll kkkkkkkkkk
+                    </span>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px;margin-bottom: 0;">
+                <a id="startTrans_btt" href="javascript:void(0);" class="forget-btt" style="width:150px; margin-left: 350px;" onclick="showStartTransWindow(this)"> Start Transaction </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="front-startTransWindow" id="startTransWindow">
+        <div class="winHeader">
+            <span id="startTransWinHead">Start Transaction</span>
+            <img src="pics/close.png" class="closePic" onmouseover="redClosePic()" onmouseout="orgClosePic()" onclick="closePump(this)" alt="close window">
+        </div>
+        <div class="manager-pumpWindowContent">
+            <div>
+                <span class="front-startTransAttName"> Seller Name: </span>
+                <span class="front-startTransAttValue" id="startTrans-sellerName"> Other names + Last Name </span>
+            </div>
+            <div>
+                <span class="front-startTransAttName"> Phone Number </span>
+                <span class="front-startTransAttValue" id="startTrans-PhoneNumber"> phone number </span>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <a id="startTrans-confirm" href="javascript:void(0);" class="front-startTrans-confirmBtt" onclick="confirmStartTrans(this)"> Confirm </a>
+                <a id="startTrans-cancel" href="javascript:void(0);" class="front-startTrans-cancelBtt" onclick="cancelStartTrans()"> Cancel </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var carSource = {};
+
+window.onload = function(){
+    changeLogin();
+    document.getElementById('coverDetailWindow').style.display="none";
+    document.getElementById('cover_StartTrans').style.display="none";
+    document.getElementById('detailWindow').style.display="none";
+    document.getElementById('startTransWindow').style.display="none";
+    var raw = getCars();
+    var cars=raw.split(";");
+    for(var i = 0; i<cars.length;i++) {
+        var thisCar = cars[i].split(",");
+
+        carSource[i]={'id':thisCar[0], 'model': thisCar[1], 'make': thisCar[2], 'price': thisCar[3], 
+        'sellerID': thisCar[4], 'year': thisCar[5], 'mileage': thisCar[6], 'power':thisCar[7], 
+        'note': thisCar[8], 'fuelCons':thisCar[9], 'registerDate': thisCar[10]};
+    }
+    addCar_Card();
+};
+
+function addCar_Card(){
+
+    //===================
+    var ul = document.getElementById("recResults_list");
+    //=====================
+    
+    if (Object.keys(carSource).length===1){
+        var li=document.createElement("li");
+        li.setAttribute("style","text-align: center;");
+        var text1 = document.createElement("div");
+        text1.innerHTML="No cars meet the condition(s) exist in our database!";
+        text1.setAttribute("style","font-size:18pt; color: tomato;");
+        var text2 = document.createElement("div");
+        text2.innerHTML="Please try again with other conditions.";
+        text2.setAttribute("style","font-size:18pt; color: tomato;");
+        
+        li.appendChild(text1);  
+        li.appendChild(text2); 
+        ul.appendChild(li);
+    }else{
+        
+        for (var i=0; i<Object.keys(carSource).length-1; i++){
+            var price_pound = document.createElement("span");
+            price_pound.setAttribute("class","front-car-price");
+            price_pound.innerHTML="£";
+
+            var age = document.createElement("span");
+            age.setAttribute("class","front-attName");
+            age.innerHTML="Age:";
+
+            var age_unit = document.createElement("span");
+            age_unit.setAttribute("class","front-ageUnit");
+            age_unit.innerHTML="year(s)";
+
+            var mileage = document.createElement("span");
+            mileage.setAttribute("class","front-attName");
+            mileage.innerHTML="Mileage:";
+
+            var mileage_unit = document.createElement("span");
+            mileage_unit.setAttribute("class","front-ageUnit");
+            mileage_unit.innerHTML="miles";
+
+            var powerType = document.createElement("span");
+            powerType.setAttribute("class","front-attName");
+            powerType.innerHTML="Power Type:";
+
+            var fuelCon = document.createElement("span");
+            fuelCon.setAttribute("class","front-attName");
+            fuelCon.innerHTML="Fuel Consumption:";
+
+            var fuelCon_unit = document.createElement("span");
+            fuelCon_unit.setAttribute("class","front-ageUnit");
+            fuelCon_unit.innerHTML="mpg";
+
+            var li=document.createElement("li");
+            li.id="carID_"+carSource[i].id;
+            var div_left=document.createElement("div");
+            div_left.setAttribute("class","front-car-left");
+            var div_right=document.createElement("div");
+            div_right.setAttribute("class","front-car-right");
+
+            var div_carPic = document.createElement("div");
+            div_carPic.setAttribute("class","front-picRec");
+            div_left.appendChild(div_carPic);
+
+            //Right Line 1
+            var right_line1 = document.createElement("div");
+            var make = document.createElement("span");
+            var model = document.createElement("span");
+            var price = document.createElement("span");
+            make.setAttribute("class","front-card-make");
+            model.setAttribute("class","front-car-model");
+            price.setAttribute("class","front-car-price");
+            make.innerHTML=carSource[i].make;
+            model.innerHTML=carSource[i].model;
+            price.innerHTML=carSource[i].price;
+            right_line1.appendChild(make);
+            right_line1.appendChild(model);
+            right_line1.appendChild(price);
+            right_line1.appendChild(price_pound);
+
+            //Right Line 2
+            var right_line2 = document.createElement("div");
+
+            var right_agePart1 = document.createElement("div");
+            right_agePart1.setAttribute("class","front-car-detailBlock");
+            var age_val = document.createElement("span");
+            age_val.setAttribute("class","front-attValue");
+            age_val.innerHTML=carSource[i].year;
+            right_agePart1.appendChild(age);
+            right_agePart1.appendChild(age_val);
+            right_agePart1.appendChild(age_unit);
+
+            var mileage_val = document.createElement("span");
+            mileage_val.innerHTML=carSource[i].mileage;
+            mileage_val.setAttribute("class","front-attValue");
+            right_line2.appendChild(right_agePart1);
+            right_line2.appendChild(mileage);
+            right_line2.appendChild(mileage_val);
+            right_line2.appendChild(mileage_unit);
+
+            //Right Line 3
+            var right_line3 = document.createElement("div");
+
+            var right_agePart2 = document.createElement("div");
+            right_agePart2.setAttribute("class","front-car-detailBlock");
+            var powerType_val = document.createElement("span");
+            powerType_val.setAttribute("class","front-attValue");
+            powerType_val.innerHTML=carSource[i].power;
+            right_agePart2.appendChild(powerType);
+            right_agePart2.appendChild(powerType_val);
+
+            var fuelCon_val = document.createElement("span");
+            fuelCon_val.setAttribute("class","front-attValue");
+            fuelCon_val.innerHTML=carSource[i].fuelCons;
+            right_line3.appendChild(right_agePart2);
+            right_line3.appendChild(fuelCon);
+            right_line3.appendChild(fuelCon_val);
+            right_line3.appendChild(fuelCon_unit);
+
+            //Right Line 4
+            var right_line4 = document.createElement("div");
+            var confirmBtt = document.createElement("a");
+            confirmBtt.setAttribute("class","front-car-detailBtt");
+            confirmBtt.setAttribute("onclick","showDetailWindow(this)");
+            confirmBtt.innerHTML="See Details";
+            confirmBtt.id="carIdx_"+i;
+            right_line4.appendChild(confirmBtt);
+
+            div_right.appendChild(right_line1);
+            div_right.appendChild(right_line2);
+            div_right.appendChild(right_line3);
+            div_right.appendChild(right_line4);
+
+            li.appendChild(div_left);
+            li.appendChild(div_right);  
+
+            ul.appendChild(li);
+        }
+}
+}
+
+function showDetailWindow(btt){
+    var bttID = btt.id;
+    var carIdx = bttID.substring(7,bttID.length);     //Get car index in the list
+    
+    document.getElementById('coverDetailWindow').style.display="";
+    document.getElementById('detailWindow').style.display="";
+    var make = carSource[carIdx].make;
+    var model = carSource[carIdx].model;
+    var price = carSource[carIdx].price;
+    var year = carSource[carIdx].year;
+    var mileage = carSource[carIdx].mileage;
+    var fuelCon = carSource[carIdx].fuelCons;
+    var powerType = carSource[carIdx].power;
+    var note = carSource[carIdx].note;
+    document.getElementById('detailWinHead').innerHTML = make + " " + model;
+    document.getElementById('detail_make').innerHTML = make;
+    document.getElementById('detail_model').innerHTML = model;
+    document.getElementById('detail_price').innerHTML = price;
+    document.getElementById('detail_year').innerHTML = year;
+    document.getElementById('detail_mileage').innerHTML = mileage;
+    document.getElementById('detail_fuelConsumption').innerHTML = fuelCon;
+    document.getElementById('detail_powerType').innerHTML = powerType;
+    document.getElementById('detail_note').innerHTML = note;
+    var startTrans_btt = document.getElementById('startTrans_btt');
+    startTrans_btt.name = "carIdx_"+carIdx;
+
+    if (getUserStatus && getUserIdentity() === "Member"){
+        var passedInfo = {
+            'email': getUserEmail(),
+            'carID':carSource[carIdx].id};
+        $.ajax({
+            async :false,
+            url:"HistoryServlet",
+            method:"get",
+            dataType:"text",
+            data:passedInfo,
+            success:function(data){
+               result = data;
+            },
+            error: function(error){
+                alert(error.status+","+error.statusText);
+                window.location.reload();
+            }
+        });
+    }
+}
+
+function showStartTransWindow(btt){
+    if(!getUserStatus()){
+        alert("Please login before starting a transaction");
+    }else{
+        document.getElementById('cover_StartTrans').style.display="";
+    document.getElementById('startTransWindow').style.display="";
+    
+    var result;
+    var bttNAME=btt.name;
+    var carIdx = bttNAME.substring(7,bttNAME.length);
+    var sellerID = carSource[carIdx].sellerID;
+    var passedInfo = {
+        "method": "showStartTransWindow",
+        "sellerID": sellerID};
+
+    $.ajax({
+             async :false,
+             url:"MemberServlet",
+             method:"post",
+             dataType:"text",
+             data:passedInfo,
+             success:function(data){
+                result = data;
+             },
+             error: function(error){
+                 alert(error.status+","+error.statusText);
+                 window.location.reload();
+             }
+         });
+         
+    var sellerInfo = result.split(";");
+    var firstName = sellerInfo[0];
+    var lastName = sellerInfo[1];
+    var phone = sellerInfo[2];
+
+    var name_place = document.getElementById('startTrans-sellerName');
+    var phone_place = document.getElementById('startTrans-PhoneNumber');
+    name_place.innerHTML = firstName + " " + lastName;
+    phone_place.innerHTML = phone;
+    
+    var startTrans_btt = document.getElementById('front-startTrans-confirmBtt');
+    startTrans_btt.name = "carIdx_"+carIdx;
+    
+    }
+    
+}
+
+function cancelStartTrans(){
+    document.getElementById('startTransWindow').style.display="none";
+    document.getElementById('cover_StartTrans').style.display="none";
+
+}
+
+function confirmStartTrans(btt){
+    
+    if (getUserIdentity()===null){
+        alert("Please login first!");
+    }else{
+        
+        if (confirm("Are you sure to start this transaction?")){
+        document.getElementById('startTransWindow').style.display="none";
+        document.getElementById('cover_StartTrans').style.display="none";
+        document.getElementById('coverDetailWindow').style.display="none";
+        document.getElementById('detailWindow').style.display="none";
+        var bttName = btt.name;
+        var carIdx = bttName.substring(7,bttName.length);
+        var carID = carSource[carIdx].id;
+        var passedInfo = {
+            "newBuyer_email": getUserEmail(),
+            "carID": carID
+        };
+        
+        $.ajax({
+         async :false,
+         url:"MemberServlet",
+         method:"post",
+         dataType:"text",
+         data:passedInfo,
+         success:function(data){
+            result = data;
+            var carCard = document.getElementById('carID_'+carID);
+            document.removeChild(carCard);
+            alert("You have bought this car!");
+         },
+         error: function(error){
+             alert(error.status+","+error.statusText);
+             window.location.reload();
+         }
+        });
+    }
+
+    }
+}
+
+function closePump(closeBtt){
+    
+    var window = closeBtt.parentNode.parentNode;
+    window.style.display="none";
+    if (document.getElementById('cover_StartTrans').style.display===""){
+        document.getElementById('cover_StartTrans').style.display="none";
+    }else{
+        document.getElementById('coverDetailWindow').style.display="none";
+    }
+    
+}
+
+
+
+function redClosePic(){
+    document.getElementById('closePic').src="pics/closeHover.png";
+}
+
+function orgClosePic(){
+    document.getElementById('closePic').src="pics/close.png";
+}
+
+
+    </script>
+    </body>
+</html>

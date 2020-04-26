@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Used-Car Trading System - Front Page</title>
+
+    <link rel="stylesheet" href="assets/webStyles.css">
+    <script src="assets/js/JS_frontPage.js"></script>
+    <script src="assets/js/JS_top.js"></script>
+</head>
+    
+<body>
+     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+     <div class="loadCover" id='loadingNote' style="z-index: 500 "> <span class="loadText">Loading!</span> </div>
+    <nav class="navBG">
+        <div class="logoPic"></div>
+        <div id="nav-picRight">
+            <div class="pageTitle">Used Car Trading System</div>
+            <div style="margin-top: 10px;">
+                <a href="index.html" class="menuItems topMenu" style="margin-left:120px;">Home</a>
+                <span class="menuItems colorLightGray">|</span>
+
+                <a href="GetRecommendations.html" class="menuItems topMenu">Get Recommendations</a>
+                <span class="menuItems colorLightGray">|</span>
+
+                <a href="#" class="menuItems uploadCar" onclick="checkEnterUploadPage()">Upload Used Car</a>
+            </div>
+            <a href='login.html' class="loginBtt" id="loginBtt" onclick="logOut()"> Login </a>  
+        </div>
+    </nav>
+ 
+
+    <div class="mainContents">
+        <div class="content-firstLine">
+            <span class="tabTitle">Front Page</span>
+        </div>
+    <!-- Main content -->
+        <div class="front-underTitle">
+            <ul class="front-carList" id="frontPage-list">
+               
+            </ul>  
+        </div>
+        </div>
+
+    <div class="greyCover" id='coverDetailWindow' style="z-index: 10; "> </div>
+    <div class="greyCover" id='cover_StartTrans' style="z-index: 80;"> </div>
+    <div class="front-detailWindow" id="detailWindow">
+        <div class="winHeader">
+            <span id="detailWinHead"> xxx </span>
+            <img src="pics/close.png" class="closePic" onmouseover="redClosePic()" onmouseout="orgClosePic()" onclick="closePump(this)" alt="close window">
+        </div>
+        <div class="manager-pumpWindowContent">
+            <div>
+                <div class="front-detail-leftBox">
+                    <div class="front-detailAttName-left"> Make: </div>
+                    <span class="front-detailAttValue" id="detail_make"> maaaake </span>
+                </div>
+                <div style="display: inline-block">
+                    <div class="front-detailAttName-right"> Model: </div>
+                    <span class="front-detailAttValue" id="detail_model"> moddddel </span>
+                </div>
+            </div>
+            <div>
+                <div class="front-detail-leftBox">
+                    <div class="front-detailAttName-left"> Price: 
+                        <span class="front-detailPoundSign">£</span></div>
+                    <span class="front-detailAttValue" id="detail_price"> 3455345</span>
+                </div>
+                <div style="display: inline-block">
+                    <div class="front-detailAttName-right"> Year: </div>
+                    <span class="front-detailAttValue" id="detail_year"> 13</span>
+                    <span class="front-detail-unit"> year(s)</span>
+                </div>
+            </div>
+            <div>
+                <div class="front-detail-leftBox">
+                    <div class="front-detailAttName-left"> Mileage: </div>
+                    <span class="front-detailAttValue" id="detail_mileage"> 12331344 </span>
+                    <span class="front-detail-unit"> mile(s)</span>
+                </div>
+                <div style="display: inline-block">
+                    <div class="front-detailAttName-right" style="font-size: 13pt;"> Fuel Consumption: </div>
+                    <span class="front-detailAttValue" id="detail_fuelConsumption"> 42 </span>
+                    <span class="front-detail-unit"> mpg</span>
+                </div>
+            </div>
+            
+            <div>
+                <div class="front-detailAttName-left"> Power Type: </div>
+                <span class="front-detailAttValue" id="detail_powerType"> Electric</span>
+            </div>
+            <div>
+                <div class="front-detailAttName-left" style="position: relative; top:-50px;"> Note:</div>      
+                <div class="front-detailNoteContent"> 
+                    <span id="detail_note">
+                    vvvvvvv iiiiii jjj mmmmm jjjjjjjjj tttt ssssss cccccc aaaaa bbbbbbbbb ddddd eeeeeee 
+                    tttttt rrrrrrr oooooo ffffff sssssssssss rrrrr gggggg ddddddddddddd wwwwwwww qqqq nnnnnn
+                    llllll ppppp uuuuuuuuuuuu nnnnnnn lll kkkkkkkkkk
+                    </span>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px;margin-bottom: 0;">
+                <a id="startTrans_btt" href="javascript:void(0);" class="forget-btt" style="width:150px; margin-left: 350px;" onclick="showStartTransWindow(this)"> Start Transaction </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="front-startTransWindow" id="startTransWindow">
+        <div class="winHeader">
+            <span id="startTransWinHead">Start Transaction</span>
+            <img src="pics/close.png" class="closePic" onmouseover="redClosePic()" onmouseout="orgClosePic()" onclick="closePump(this)" alt="close window">
+        </div>
+        <div class="manager-pumpWindowContent">
+            <div>
+                <span class="front-startTransAttName"> Seller Name: </span>
+                <span class="front-startTransAttValue" id="startTrans-sellerName"> Other names + Last Name </span>
+            </div>
+            <div>
+                <span class="front-startTransAttName"> Phone Number </span>
+                <span class="front-startTransAttValue" id="startTrans-PhoneNumber"> phone number </span>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <a id="startTrans-confirm" href="javascript:void(0);" class="front-startTrans-confirmBtt" onclick="confirmStartTrans(this)"> Confirm </a>
+                <a id="startTrans-cancel" href="javascript:void(0);" class="front-startTrans-cancelBtt" onclick="cancelStartTrans()"> Cancel </a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="cookieNoticeBar" class="cookieDiv" style="z-index: 5;">
+          <span>By using our website, you acknowledge that you have read and understand our 
+              <a href="cookiePolicy.html" class="cookie-text" target="_blank"> Cookie Policy </a>, 
+              <a href="termsOfUse.html" class="cookie-text" target="_blank"> Privacy Policy </a>, and our 
+              <a href="privacyPolicy.html" class="cookie-text" target="_blank"> Terms of Service </a>.</span>
+              <img id="closePic" src="pics/close.png" class="closePic" onmouseover="redClosePic()" onmouseout="orgClosePic()" onclick="closeCookieNotice()" alt="close window">
+
+    </div>
+    </body>
+</html>
